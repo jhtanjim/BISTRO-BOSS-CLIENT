@@ -4,13 +4,23 @@ import Cover from '../Shared/Cover/Cover';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 import useMenu from '../../hooks/UseMenu';
 import OrderTab from '../Menu/OrderTab/OrderTab';
+import { Helmet } from 'react-helmet-async';
 
 const OrderPage = () => {
 
-    const [tabIndex, setTabIndex] = useState(0)
+    const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks']
+    const { category } = useParams()
+
+    const initialIndex = categories.indexOf(category)
+
+
+    const [tabIndex, setTabIndex] = useState(initialIndex)
     const [menu] = useMenu()
+
+
 
     const dessert = menu.filter(item => item.category === 'dessert')
     const pizza = menu.filter(item => item.category === 'pizza')
@@ -20,6 +30,12 @@ const OrderPage = () => {
 
     return (
         <div>
+
+
+
+            <Helmet>
+                <title>Bistro Boss| Order Food</title>
+            </Helmet>
 
             <Cover
                 img={orderImg}
