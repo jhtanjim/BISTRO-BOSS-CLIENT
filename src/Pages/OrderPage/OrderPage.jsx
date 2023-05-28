@@ -37,6 +37,7 @@ const OrderPage = () => {
                 <title>Bistro Boss| Order Food</title>
             </Helmet>
 
+
             <Cover
                 img={orderImg}
                 title="Order Food"
