@@ -2,6 +2,8 @@ import React from 'react';
 import FoodCard from '../../../Components/FoodCard/FoodCard';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+
+// TODO: implement pagination here on this page
 const OrderTab = ({ items }) => {
 
 
