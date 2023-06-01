@@ -8,7 +8,7 @@ const MyCart = () => {
     const [cart, refetch] = useCarts()
     console.log(cart);
     // reduce function
-    const total = cart.reduce((sum, item) => item.price + sum, 0).toFixed(2);
+    const total = cart.reduce((sum, item) => item.price + sum, 0);
 
 
 

@@ -8,11 +8,14 @@ import Home from "../Pages/Home/Home/Home";
 import Menu from "../Pages/Menu/Menu/Menu";
 import OrderPage from "../Pages/OrderPage/OrderPage";
 import Login from "../Pages/Login/Login";
-import SignUp from "../Pages/signUp/signUp";
 import PrivateRoutes from "./PrivateRoutes";
 import Secret from "../Pages/Shared/Secret/Secret";
 import DashBoard from "../Layout/DashBoard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import SignUp from "../Pages/SignUp/SignUp";
+import AddItem from "../Pages/Dashboard/AddItem/AddItem";
+import AdminRoute from "./AdminRoute";
 // import Login from "../Pages/Login/Login";
 
 
@@ -55,12 +58,25 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <DashBoard></DashBoard>,
+        element: <PrivateRoutes>
+
+            <DashBoard></DashBoard>
+        </PrivateRoutes>,
         children: [
             {
                 path: 'mycart',
                 element: <MyCart></MyCart>
             },
+            {
+                path: 'allusers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: 'addItem',
+                element: <AdminRoute><AddItem></AddItem></AdminRoute>
+            },
+
+
         ]
     }
 
