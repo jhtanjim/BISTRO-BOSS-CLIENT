@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const MenuCategory = ({ items, title, img }) => {
     return (
-        <div className='pt-16'>
+        <div className='lg:pt-16 max-w-screen-xl mx-auto'>
 
             {title && <Cover
                 img={img}

@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { router } from './ROuter/Routes.jsx';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './Providers/AuthProvider.jsx';
 // tenstack query
 import {
@@ -21,17 +20,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
 
-      <HelmetProvider>
 
-        <QueryClientProvider client={queryClient}>
-          <div className=' mx-auto '>
-            <RouterProvider router={router} />
-          </div>
-        </QueryClientProvider>
-
+      <QueryClientProvider client={queryClient}>
+        <div className=' mx-auto '>
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
 
 
-      </HelmetProvider>
+
     </AuthProvider>
   </React.StrictMode>
 )

@@ -29,7 +29,7 @@ const OrderPage = () => {
     const drinks = menu.filter(item => item.category === 'drinks')
 
     return (
-        <div>
+        <div className='max-w-screen-2xl mx-auto'>
 
 
 
@@ -42,7 +42,7 @@ const OrderPage = () => {
                 img={orderImg}
                 title="Order Food"
             ></Cover>
-            <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+            <Tabs className='my-8' defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
 
 

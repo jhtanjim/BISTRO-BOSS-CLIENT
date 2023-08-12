@@ -58,23 +58,11 @@ const DashBoard = () => {
 
                                 </>
                         }
-
-
-
-
-
-
-
-
-
-
-
                         <div className="divider"></div>
                         <li><NavLink to='/'><FaHome />Home  </NavLink></li>
                         <li><NavLink to='/menu'> <FaHome />Our Menu</NavLink></li>
                         <li><NavLink to='/order/pizza'> <FaHome />Order food</NavLink></li>
                         <li><NavLink><FaCalendarAlt />Reservations  </NavLink></li>
-
                     </ul>
 
                 </div>

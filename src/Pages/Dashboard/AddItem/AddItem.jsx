@@ -1,6 +1,5 @@
 import React from 'react';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
-import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { FaUtensils } from 'react-icons/fa';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -10,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN
 const AddItem = () => {
-    const [asiosSecure] = useAxiosSecure()
+    const [axiosSecure] = useAxiosSecure()
 
     const { register, handleSubmit, reset } = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
@@ -41,7 +40,7 @@ const AddItem = () => {
                         category, recipe, image: imgUrl
                     }
                     console.log(newMenuItem);
-                    asiosSecure.post('/menu', newMenuItem)
+                    axiosSecure.post('/menu', newMenuItem)
                         .then(data => {
                             console.log('After Posting New Menu Item', data.data);
                             if (data.data.insertedId) {
@@ -69,9 +68,7 @@ const AddItem = () => {
     return (
 
         <div className='w-full px-10'>
-            <Helmet>
-                <title>Bistro Boss | Add Item </title>
-            </Helmet>
+
 
 
             <SectionTitle

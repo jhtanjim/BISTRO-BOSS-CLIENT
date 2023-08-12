@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import Cover from '../../Shared/Cover/Cover';
 import menuImg from '../../../assets/menu/banner3.jpg'
 import desertImg from '../../../assets/menu/dessert-bg.jpeg'
@@ -21,13 +20,9 @@ const Menu = () => {
     const offered = menu.filter(item => item.category === 'offered')
 
     return (
-        <div>
+        <div className=''>
 
-            <Helmet>
-                <title
 
-                >Bistro Boss| Menu</title>
-            </Helmet>
             <Cover
                 img={menuImg}
                 title='Our Menu'

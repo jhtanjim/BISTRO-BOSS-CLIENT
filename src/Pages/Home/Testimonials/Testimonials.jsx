@@ -14,17 +14,17 @@ import '@smastrom/react-rating/style.css'
 const Testimonials = () => {
 
 
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([])//state declare krsi
 
+
+    // server teke data fetch krsi
     useEffect(() => {
-
-        fetch('http://localhost:5000/review')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => {
 
                 setReviews(data)
             })
-
 
     }, [])
 
@@ -36,16 +36,11 @@ const Testimonials = () => {
             <SectionTitle
                 subHeading='What Our Client Say'
                 heading={'Testimonials'}
-
             ></SectionTitle>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-
-                {
+              {
                     reviews.map(review => <SwiperSlide
-
                         key={review._id}
-
-
                     >
                         <div className='m-24 flex flex-col items-center my-16 mx-24'>
                             <Rating
@@ -53,11 +48,9 @@ const Testimonials = () => {
                                 value={review.rating}
                                 readOnly
                             />
-                            <p className='py-8'>{review.details}</p>
+                            <p className='py-8 text-sm'>{review.details}</p>
                             <h3 className="text-2xl text-orange-400">{review.name}</h3>
-
                         </div>
-
                     </SwiperSlide>)
                 }
 

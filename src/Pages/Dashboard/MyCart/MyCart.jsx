@@ -1,12 +1,12 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import useCarts from '../../../hooks/useCarts';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     const [cart, refetch] = useCarts()
-    console.log(cart);
+    // console.log(cart);
     // reduce function
     const total = cart.reduce((sum, item) => item.price + sum, 0);
 
@@ -15,14 +15,6 @@ const MyCart = () => {
 
     // delete
     const handleDelete = item => {
-
-
-
-
-
-
-
-
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -33,7 +25,7 @@ const MyCart = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${item._id}`, {
+                fetch(`https://bistro-boss-server-jhtanjim.vercel.app/carts/${item._id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -62,15 +54,13 @@ const MyCart = () => {
 
 
         <div className='w-full max-w-4xl '>
-            <Helmet>
-                <title>Bistro Boss | My Cart </title>
-            </Helmet>
+
 
 
             <div className='uppercase h-[60px] mb-4 align-items-center font-semibold flex justify-evenly'>
                 <h3 className="text-3xl">Total Items : {cart.length}</h3>
                 <h3 className="text-3xl">Total Price : {total}</h3>
-                <button className="btn btn-warning  btn-sm">Pay</button>
+                <Link to='/dashboard/payment'><button className="btn btn-warning  btn-sm">Pay</button></Link>
 
             </div>
             <div className="overflow-x-auto w-full">
